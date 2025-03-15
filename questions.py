@@ -1,5 +1,6 @@
 import random
 import sys
+from random import sample
 # Preguntas para el juego
 questions = ["¿Qué función se usa para obtener la longitud de una cadena en Python?",
             "¿Cuál de las siguientes opciones es un número entero enPython?",
@@ -25,11 +26,10 @@ correct_answers_index = [1, 2, 0, 3, 1]
 #El usuario cuenta con un sistema de puntos
 puntos = 0
 #haciendo una lista de preguntas aletorias(ayuda de la practica)
-questions_to_ask = random.choices(list(zip(questions,answers, correct_answers_index)), k=3)
+#la funcion random.sample() permite que las preguntas ya no se repitan
+questions_to_ask = random.sample(list(zip(questions,answers, correct_answers_index)), k=3)
 # El usuario deberá contestar 3 preguntas
 for pregunta,opciones,respuesta in questions_to_ask:
-    # Se selecciona una pregunta aleatoria
-    question_index = random.randint(0, len(questions) - 1)
     # Se muestra la pregunta y las respuestas posibles
     print(pregunta)
     for i, answer in enumerate(opciones):
