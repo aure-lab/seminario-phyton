@@ -1,4 +1,5 @@
 import random
+import sys
 # Preguntas para el juego
 questions = ["¿Qué función se usa para obtener la longitud de una cadena en Python?",
             "¿Cuál de las siguientes opciones es un número entero enPython?",
@@ -31,11 +32,16 @@ for _ in range(3):
         print(f"{i + 1}. {answer}")
     # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
-        user_answer = int(input("Respuesta: ")) - 1
-        # Se verifica si la respuesta es correcta
-        if user_answer == correct_answers_index[question_index]:
-            print("¡Correcto!")
-            break
+        user_answer = input("Respuesta: ")
+        if user_answer in ['1','2','3','4']:
+            user_answer = int(user_answer)-1
+            # Se verifica si la respuesta es correcta
+            if user_answer == correct_answers_index[question_index]:
+                print("¡Correcto!")
+                break
+        else:
+            print('respuesta no valida')
+            sys.exit(1)
     else:
         # Si el usuario no responde correctamente después de 2 intentos,
         # se muestra la respuesta correcta
