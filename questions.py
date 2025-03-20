@@ -1,6 +1,5 @@
 import random
 import sys
-from random import sample
 
 # Preguntas para el juego
 questions = [
