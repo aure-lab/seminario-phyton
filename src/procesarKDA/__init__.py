@@ -11,7 +11,7 @@ def procesar(ronda, jugadores):
     for names in ronda.keys():
         for stats in ronda[names].keys():
             jugadores[names][stats] += ronda[names][stats]
-            pts = puntos(ronda[names])
+        pts = puntos(ronda[names])
         jugadores[names]["points"] += pts
         puntos_x_jugador[names] = pts
     jugadores[calcularMVP(puntos_x_jugador)]["MVPs"] += 1
